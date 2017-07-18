@@ -1,7 +1,10 @@
 var express = require("express");
 var router = express.Router();
 var mongojs = require("mongojs");
-var db = mongojs("mongodb://oscar:pronoy@ds135552.mlab.com:35552/yelpcampv12", ['tasks']);
+var cs = require('./cs.js');
+
+console.log(cs);
+var db = mongojs(cs, ['tasks']);
 
 // LIST ALL TASKS
 router.get('/tasks', function(req, res, next){
